@@ -60,3 +60,5 @@ A few things to know:
 - The `soldiers` block replaces the old `soldier` line, so don't also give the unit a `soldier` line or `armour_ug_*` lines. The parser reads whichever form comes first and chokes on the leftovers.
 - Every mesh in the unit (the default pool and every `armour N` pool, or the meshes listed in `armour_ug_models`) needs to be rigged to the same skeleton as the model named on `skeleton` / `soldier`. If a mesh uses a different bone layout, its animation comes out garbled. The model itself can differ, it's the bone layout that has to match.
 - M2 already varies soldiers within a single model through mesh variations. The `soldiers` block does something different: it swaps the whole model. The two stack, so the block picks which model a soldier uses and mesh variations then vary that model further.
+
+Mounts and animals can vary the same way, see [mount_variation.md](mount_variation.md).

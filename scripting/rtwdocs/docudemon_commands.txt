@@ -3,46 +3,46 @@ Commands
 
 
 ---------------------------------------------------
-Identifier:         ai_gta_plan_set
-Parameters:         alliance plan
-Description:        Sets GTA battle plan
-Sample use:         ai_gta_plan_set 0 DO_NOTHING
-Class:              AI_GTA_PLAN_SET
+Identifier:         senate_mission_help_player
+Parameters:         payback
+Description:        Issue a senate mission to gift the player with the payback - receipt and notification takes place at the start of the next turn
+Sample use:         senate_mission_help_player one_best_buildable_unit
+Class:              SENATE_MISSION_HELP_PLAYER
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         ai_gta_add_objective
-Parameters:         alliance objective priority ...
-Description:        Add GTA objective
-Sample use:         ai_gta_add_objective 1 MOVE_TO_POINT 11 440, -710
-Class:              AI_GTA_ADD_OBJECTIVE
+Identifier:         senate_mission_assassination
+Parameters:         payback, character name
+Description:        Issue a senate mission to assassinate the character named in the parameter list for a reward of the payback
+Sample use:         senate_mission_assassination minor_reward Gaius Julius
+Class:              SENATE_MISSION_ASSASSINATION
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         ai_gta_del_objective
-Parameters:         alliance objective
-Description:        Remove GTA objective
-Sample use:         ai_gta_del_objective 1 0
-Class:              AI_GTA_DEL_OBJECTIVE
+Identifier:         senate_mission_cease_hostilities
+Parameters:         payback, faction
+Description:        Issue a senate mission to instruct the player to cease hostilities against the named faction for a reward of the payback
+Sample use:         senate_mission_cease_hostilities two_minor_exotic_units Gauls
+Class:              SENATE_MISSION_CEASE_HOSTILITIES
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         ai_gta_add_unit
-Parameters:         alliance objective army unit
-Description:        Add unit to a GTA objective
-Sample use:         ai_gta_add_unit 1 0 1 0
-Class:              AI_GTA_ADD_UNIT
+Identifier:         senate_mission_declare_war
+Parameters:         payback, faction
+Description:        Issue a senate mission to instruct the player to prosecute a war against the named faction for a reward of the payback
+Sample use:         senate_mission_declare_war major_reward Gauls
+Class:              SENATE_MISSION_DECLARE_WAR
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         ai_gta_add_unit_id
-Parameters:         alliance objective unit_id
-Description:        Add unit to a GTA objective by unit id
-Sample use:         ai_gta_add_unit_id 1 0 6
-Class:              AI_GTA_ADD_UNIT_ID
+Identifier:         senate_mission_broker_peace
+Parameters:         payback, faction
+Description:        Issue a senate mission to instruct the player to prosecute a war against the named faction for a reward of the payback
+Sample use:         senate_mission_broker_peace major_reward Gauls
+Class:              SENATE_MISSION_BROKER_PEACE
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         ai_gta_add_unit_label
-Parameters:         alliance objective unit_label
-Description:        Add unit to a GTA objective by unit id
-Sample use:         ai_gta_add_unit_label 1 0 6
-Class:              AI_GTA_ADD_UNIT_LABEL
+Identifier:         senate_mission_take_city
+Parameters:         payback, settlement name
+Description:        Issue a senate mission to take the settlement named in the parameter list for a reward of the payback
+Sample use:         senate_mission_assassination moderate_reward Tarquini
+Class:              SENATE_MISSION_TAKE_CITY
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         ai_active_set
@@ -73,25 +73,11 @@ Sample use:         swimming_enabled_set false
 Class:              SWIMMING_ENABLED_SET
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         terminate_battle
-Parameters:         win/lose/draw
-Description:        terminates the battle
-Sample use:         terminate_battle
-Class:              TERMINATE_BATTLE
-Implemented:        Yes
----------------------------------------------------
 Identifier:         pause_battle
 Parameters:         
 Description:        pauses the battle
 Sample use:         pause_battle
 Class:              PAUSE_BATTLE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         battle_set_speed
-Parameters:         speed: 0.0f -> 10.0f
-Description:        sets battle speed
-Sample use:         battle_set_speed 1.0f
-Class:              BATTLE_SET_SPEED
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         unit_immediate_place
@@ -227,13 +213,6 @@ Sample use:         unit_set_skirmish_mode velites1 off
 Class:              UNIT_SET_SKIRMISH_MODE
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         unit_toggle_task_interrupt
-Parameters:         unit_label melee/skirmish/fire_at_will/rout/berserk/infighting on/off
-Description:        Enables/disables the specified interrupt for the unit
-Sample use:         unit_toggle_task_interrupt roman_archers skirmish on
-Class:              UNIT_TOGGLE_TASK_INTERRUPT
-Implemented:        Yes
----------------------------------------------------
 Identifier:         unit_set_fire_at_will_mode
 Parameters:         unit_label on/off
 Description:        Sets the fire-at-will melee state for the specified unit
@@ -267,20 +246,6 @@ Parameters:         group_label true/false
 Description:        Sets or unsets unit group automation
 Sample use:         unit_group_enable_automation
 Class:              UNIT_GROUP_ENABLE_AUTOMATION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         unit_group_automate_defend_position
-Parameters:         group_label location radius
-Description:        Instructs an automated unit group to defend position
-Sample use:         unit_group_automate_defend_position 106 -56 75
-Class:              UNIT_GROUP_AUTOMATE_DEFEND_POSITION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         unit_group_automate_attack
-Parameters:         group_label enemy_unit_label
-Description:        Instructs an automated unit group to attack a specified enemy unit
-Sample use:         unit_group_automate_attack enemy_unit
-Class:              UNIT_GROUP_AUTOMATE_ATTACK
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         unit_group_immediate_place
@@ -416,41 +381,6 @@ Sample use:         unit_group_set_formation_spacing group1 loose
 Class:              UNIT_GROUP_SET_FORMATION_SPACING
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         unit_deploy_stakes
-Parameters:         unit_label
-Description:        Deploys stakes for the specified unit (ignored if stakes already deployed or the unit doesn't have this ability).
-Sample use:         unit_deploy_stakes roman_archers
-Class:              UNIT_DEPLOY_STAKES
-Implemented:        Yes
----------------------------------------------------
-Identifier:         battle_restrict_clickable_area
-Parameters:         left, top, right, bottom or no parameters to clear all regions
-Description:        Restricts world region in which player can click
-Sample use:         battle_restrict_clickable_area 1,2,3,4
-Class:              BATTLE_RESTRICT_CLICKABLE_AREA
-Implemented:        Yes
----------------------------------------------------
-Identifier:         reset_rand
-Parameters:         n/a
-Description:        Resets random number generator
-Sample use:         reset_rand
-Class:              RESET_RAND
-Implemented:        Yes
----------------------------------------------------
-Identifier:         invulnerable_general
-Parameters:         character_name
-Description:        invulnerable_general <character_name> : makes that named general invulnerable in battle
-Sample use:         invulnerable_general <rufus>
-Class:              BATTLE_INVULNERABLE_GENERAL
-Implemented:        Yes
----------------------------------------------------
-Identifier:         vulnerable_general
-Parameters:         character_name
-Description:        vulnerable_general <character_name> : makes that named general vulnerable in battle
-Sample use:         vulnerable_general <rufus>
-Class:              BATTLE_VULNERABLE_GENERAL
-Implemented:        Yes
----------------------------------------------------
 Identifier:         move_strat_camera
 Parameters:         strategy map position
 Description:        Move the camera smoothly to the position
@@ -477,13 +407,6 @@ Parameters:         on/off
 Description:        sets or unsets the restricted camera
 Sample use:         camera_restrictions_set on
 Class:              CAMERA_RESTRICTIONS_SET
-Implemented:        Yes
----------------------------------------------------
-Identifier:         lock_camera_restrictions_set
-Parameters:         on/off
-Description:        sets or unsets the players ability to change the camera restriction
-Sample use:         lock_camera_restrictions_set on
-Class:              LOCK_CAMERA_RESTRICTIONS_SET
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         camera_event_cuts_active_set
@@ -591,13 +514,6 @@ Sample use:         inhibit_camera_input true
 Class:              INHIBIT_CAMERA_INPUT
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         camera_shake
-Parameters:         true/false
-Description:        shake camera?
-Sample use:         CAMERA_SHAKE true
-Class:              CAMERA_SHAKE
-Implemented:        Yes
----------------------------------------------------
 Identifier:         declare_prologue
 Parameters:         none
 Description:        enforce prologue considerations upon the world, e.g. no general death during auto-resolve
@@ -654,19 +570,12 @@ Sample use:         spawn_character Julii Foedus Chaerea, general, command 0, in
 Class:              SPAWN_CHARACTER
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         kill_character
-Parameters:         death type (optional, natural by default), character
-Description:        Kill the character
-Sample use:         kill_character DET_POISONED Gaius Maximus
-Class:              KILL_CHARACTER
-Implemented:        Yes
----------------------------------------------------
 Identifier:         spawn_army ... end
 Parameters:         faction, character and units as in army description in historical battle (character description for general and unit descriptions for remainder of the army)
 Description:        create an army at a particular location
 Sample use:         spawn_army 
                     faction romans_julii
-                    character	Foedus Chaerea, general, command 0, influence 0, management 0, subterfuge 0, age 20, x 54, y 124, direction NE, family
+                    character	Foedus Chaerea, general, command 0, influence 0, management 0, subterfuge 0, age 20, , x 54, y 124
                     unit		roman generals guard cavalry				soldiers 20 exp 9 armour 1 weapon_lvl 0
                     unit		roman legionary first cohort ii				soldiers 40 exp 0 armour 0 weapon_lvl 0
                     unit		roman legionary cohort ii				soldiers 60 exp 0 armour 0 weapon_lvl 0
@@ -682,172 +591,11 @@ Sample use:         engage_armies Gaius Julius, Epiroderix
 Class:              ENGAGE_ARMIES
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         siege_settlement
-Parameters:         attacking_character, settlement_name [,maintain|attack]
-Description:        Instruct the character to siege the settlement
-Sample use:         siege_settlement Gaius Julius, Rome, attack
-Class:              SIEGE_SETTLEMENT
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_faction_banner
-Parameters:         parameter1: faction whose banner is to be changed
-parameter2: new faction banner name
-Description:        Changes a faction's banner at a certain point in the game in both campaign and battle
-Sample use:         set_faction_banner
-	faction	denmark
-	banner	kalmar_union
-end_set_faction_banner
-Class:              SET_FACTION_BANNER
-Implemented:        Yes
----------------------------------------------------
-Identifier:         add_events
-Parameters:         list of event descriptions
-Description:        Adds events to the event manager. Event descriptions should follow from next string until <end_add_events> tag.
-Sample use:         add_events
-  event historic stoic_philosophy
-  date 14 summer
-end_add_events 
-Class:              ADD_EVENTS
-Implemented:        Yes
----------------------------------------------------
-Identifier:         historic_event
-Parameters:         event type, accept/decline scroll, movie_path, factions
-Description:        Triggers historic event.  If accept/decline, increments a [event]_accepted or [event]_declined counter on selection. The factions list accepts 'local' to mean the faction of the triggering event scope.
-Sample use:         historic_event loot_reward factions { local, }
-Class:              HISTORIC_EVENT
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_event_counter
-Parameters:         event type, counter value or source event counter
-Description:        Changes the value of an event counter. The value may be a literal number, or the name of another event counter to copy the current value from.
-Sample use:         set_event_counter percent_slaves slave_counter_venice
-Class:              SET_EVENT_COUNTER
-Implemented:        Yes
----------------------------------------------------
-Identifier:         freeze_faction_ai
-Parameters:         faction
-Description:        Freezes specified faction ai.
-Sample use:         freeze_faction_ai aztecs 
-Class:              FREEZE_FACTION_AI
-Implemented:        Yes
----------------------------------------------------
-Identifier:         unfreeze_faction_ai
-Parameters:         faction
-Description:        Unfreezes specified faction ai.
-Sample use:         unfreeze_faction_ai aztecs 
-Class:              UNFREEZE_FACTION_AI
-Implemented:        Yes
----------------------------------------------------
-Identifier:         create_mission
-Parameters:         mission_id faction [additional mission specific parameters]
-Description:        creates a mission with the specified id with the specified parameters
-Sample use:         create_mission papal_build_church england London
-Class:              CREATE_MISSION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         freeze_recruit_pool
-Parameters:         region_name|region_id|all [true|false]
-Description:        Stop/start all unit pools replenish/deplenish in specified region or all regions
-Sample use:         freeze_recruit_pool York_Province true
-Class:              FREEZE_RECRUIT_POOL
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_recruit_pool
-Parameters:         region_name|region_id value unit_name 
-Description:        Set specified amount of units to the unit pool of the specified type of unit in the specified region.
-Sample use:         set_recruit_pool York_Province 5 temp heavy spearmen
-Class:              SET_RECRUIT_POOL
-Implemented:        Yes
----------------------------------------------------
-Identifier:         inc_recruit_pool
-Parameters:         region_name|region_id value unit_name
-Description:        Add specified amount of units to the unit pool of the specified type of unit in the specified region.
-Sample use:         inc_recruit_pool York_Province -2 temp_heavy_spearmen
-Class:              INC_RECRUIT_POOL
-Implemented:        Yes
----------------------------------------------------
-Identifier:         inc_recruit_pool_faction
-Parameters:         faction, value, unit_name | all
-Description:        Adds value to the recruitment pool of the named unit (or 'all' units) in every settlement of the faction.
-Sample use:         inc_recruit_pool_faction local 2 temp_heavy_spearmen
-Class:              INC_RECRUIT_POOL_FACTION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         restrict_autoresolve
-Parameters:         [true|false]
-Description:        Enable/disable battle autoresolve restriction
-Sample use:         restrict_autoresolve true
-Class:              RESTRICT_AUTORESOLVE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         restrict_clickable_area
-Parameters:         [allowed regions(by name or id)]
-Description:        Enable/disable(with no parameters) clickable area restriction
-Sample use:         restrict_clickable_area York_Province London_Province
-Class:              RESTRICT_CLICKABLE_AREA
-Implemented:        Yes
----------------------------------------------------
-Identifier:         restrict_clickable_rect
-Parameters:         [min_x min_y max_x max_y]
-Description:        Adds new rectangle to clickable area restriction, or clears rectangular clickable area restriction if no parameters specified
-Sample use:         restrict_clickable_rect 10 15 80 100
-Class:              RESTRICT_CLICKABLE_RECT
-Implemented:        Yes
----------------------------------------------------
-Identifier:         restrict_strat_camera
-Parameters:         [min_x min_y max_x max_y]
-Description:        Enable/disable(with no parameters) start camera restriction
-Sample use:         restrict_strat_camera 10 15 80 100
-Class:              RESTRICT_STRAT_CAMERA
-Implemented:        Yes
----------------------------------------------------
-Identifier:         restrict_strat_radar
-Parameters:         [true/false]
-Description:        Enable/disable start radar restriction
-Sample use:         restrict_strat_radar false
-Class:              RESTRICT_STRAT_RADAR
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_faction_undiscovered
-Parameters:         faction [true/false]
-Description:        Set faction undiscovered status
-Sample use:         set_faction_undiscovered aztecs false
-Class:              SET_FACTION_UNDISCOVERED
-Implemented:        Yes
----------------------------------------------------
-Identifier:         create_unit
-Parameters:         <character/settlement name>, <unit label>[, num <number of units>, exp <experience>, arm <armour level>, wep <weapon level> 
-Description:        creates one or more units of the specified type
-Sample use:         create_unit Foedus Chaerea, English_Knights, num 5, exp 1, arm 1, wep 2
-Class:              CREATE_UNIT
-Implemented:        Yes
----------------------------------------------------
-Identifier:         link_faction_ai
-Parameters:         faction, ai_label
-Description:        links specified faction to specified ai label.
-Sample use:         link_faction_ai england catholic
-Class:              LINK_FACTION_AI
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_religion
-Parameters:         faction, religion
-Description:        Changes the religion of a faction.
-Sample use:         set_religion England pagan
-Class:              SET_RELIGION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         change_population_religion
-Parameters:         faction, religion_to, percent, religion_from (religion_from optional, current faction religion by default)
-Description:        Changes the religion of a faction.
-Sample use:         change_population_religion England pagan 50 catholic
-Class:              CHANGE_POPULATION_RELIGION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         add_money
-Parameters:         faction, amount
-Description:        Adds money (negative value subtracts) to a faction's treasury.
-Sample use:         add_money England 2007
-Class:              ADD_MONEY
+Identifier:         destroy_building
+Parameters:         settlement, building_chain, refund
+Description:        Destroys all buildings in a chain in a specific settlement, can refund money.
+Sample use:         destroy_building Arretium pagan true
+Class:              DESTROY_BUILDING
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         add_random_money
@@ -855,139 +603,6 @@ Parameters:         faction, min_value, max_value
 Description:        Adds a random amount of money in [min, max] (inclusive) to a faction's treasury. Negative values supported.
 Sample use:         add_random_money local 500 1000
 Class:              ADD_RANDOM_MONEY
-Implemented:        Yes
----------------------------------------------------
-Identifier:         destroy_buildings
-Parameters:         faction, building_chain, refund
-Description:        Destroys all buildings in a chain, can refund money.
-Sample use:         destroy_buildings England pagan true
-Class:              DESTROY_BUILDINGS
-Implemented:        Yes
----------------------------------------------------
-Identifier:         destroy_building
-Parameters:         settlement, building_chain, refund
-Description:        Destroys all buildings in a chain in a specific settlement, can refund money.
-Sample use:         destroy_building London pagan true
-Class:              DESTROY_BUILDING
-Implemented:        Yes
----------------------------------------------------
-Identifier:         destroy_units
-Parameters:         faction, attribute_or_type
-Description:        Disbands all units in the faction's armies with the specified name or attribute.
-Sample use:         destroy_units England free_upkeep_unit
-Class:              DESTROY_UNITS
-Implemented:        Yes
----------------------------------------------------
-Identifier:         retire_characters
-Parameters:         faction, character_type
-Description:        Retires all characters in the faction's armies of teh specified type.
-Sample use:         retire_characters England priest
-Class:              RETIRE_CHARACTERS
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_kings_purse
-Parameters:         faction, amount
-Description:        Changes the money granted by the king's purse.
-Sample use:         set_kings_purse England 40000  (or 'local' for the trigger's faction)
-Class:              SET_KINGS_PURSE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         increment_kings_purse
-Parameters:         faction, amount
-Description:        Increments the amount of money granted by the king's purse.
-Sample use:         increment_kings_purse England 400  (or 'local' for the trigger's faction)
-Class:              INCREMENT_KINGS_PURSE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         add_settlement_turmoil
-Parameters:         settlement_name, num_turns
-Description:        Adds turmoil to the settlement, will decrease per turn.
-Sample use:         add_settlement_turmoil London 5
-Class:              ADD_SETTLEMENT_TURMOIL
-Implemented:        Yes
----------------------------------------------------
-Identifier:         send_character_off_map
-Parameters:         character_name
-Description:        Removes a character from the campaign map, but leaves them in the family tree.
-Sample use:         send_character_off_map Edward
-Class:              SEND_CHARACTER_OFF_MAP
-Implemented:        Yes
----------------------------------------------------
-Identifier:         generate_random_counter
-Parameters:         event_counter name, min_value, max_value
-Description:        Sets the specified counter to a random value between min and max inclusive.
-Sample use:         generate_random_counter RandomCounter 10 20
-Class:              GENERATE_RANDOM_COUNTER
-Implemented:        Yes
----------------------------------------------------
-Identifier:         random_counter_inc
-Parameters:         event_counter name, min_value, max_value
-Description:        Increments the specified counter by a random value between min and max inclusive.
-Sample use:         random_counter_inc RandomCounter 10 20
-Class:              RANDOM_COUNTER_INC
-Implemented:        Yes
----------------------------------------------------
-Identifier:         change_settlement_name
-Parameters:         settlement_label, new_name_label
-Description:        Changes a settlement's name to a new one from expanded.txt.
-Sample use:         change_settlement_name London Perth
-Class:              CHANGE_SETTLEMENT_NAME
-Implemented:        Yes
----------------------------------------------------
-Identifier:         inc_event_counter
-Parameters:         event type, value
-Description:        Increments the value of an event counter.
-Sample use:         inc_event_counter holds_cairo -1
-Class:              INC_EVENT_COUNTER
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_faction_standing
-Parameters:         faction, faction, amount
-Description:        Changes first faction's standing towards second faction.
-Sample use:         set_faction_standing England France -0.8
-Class:              SET_FACTION_STANDING
-Implemented:        Yes
----------------------------------------------------
-Identifier:         faction_emerge
-Parameters:         emerging_faction, target_faction, min_num_remain, max_order_threshold, max_order_threshold_surrounding, max_order_dropoff, min_level_threshold, fire_emerge_message, leader_script_label, leader_name, leader_age
-Description:        Evaluates the target factions settlements with a settlement level >= min_level_threshold and public order <= max_order_threshold.  If the settlement with the lowest order fails, is it turned over to the emerge_faction.  The leader_script_label and leader_name are used if a new leader is required.  min_num_remain specifies the minimum number of settlements for the target faction to keep. Surrounding regions are also evaluated against the surrounding threshold.
-Sample use:         faction_emerge barons_alliance England 1 85.0 100.0 1.2 town false edward1 Edward 30
-Class:              FACTION_EMERGE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         reset_guild_standing
-Parameters:         guild
-Description:        Sets the guild standing for this guild of all factions to 0.
-Sample use:         reset_guild_standing hanseatic_guild
-Class:              RESET_GUILD_STANDING
-Implemented:        Yes
----------------------------------------------------
-Identifier:         give_everything_to_faction
-Parameters:         source_faction, target_faction, bool
-Description:        Gives all assets of source faction to target faction.  Flag determines if faction defeated message is shown
-Sample use:         give_everything_to_faction norway denmark false
-Class:              GIVE_EVERYTHING_TO_FACTION
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_settlement_founding_conversion_rate
-Parameters:         settlement_name, conversion_rate
-Description:        Sets the settlements founding conversion rate.
-Sample use:         set_settlement_founding_conversion_rate London 0.05
-Class:              SET_SETTLEMENT_FOUNDING_CONVERSION_RATE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         change_battle_model
-Parameters:         guild
-Description:        Changes the faction's leader/heir's battle model.
-Sample use:         change_battle_model england leader [model]
-Class:              CHANGE_BATTLE_MODEL
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_owner_founding_conversion_rate
-Parameters:         settlement_name, conversion_rate
-Description:        Sets the settlements owner conversion rate.
-Sample use:         set_owner_founding_conversion_rate London 0.05
-Class:              SET_SETTLEMENT_OWNER_CONVERSION_RATE
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         script
@@ -1035,27 +650,27 @@ Implemented:        Yes
 Identifier:         add_hidden_resource
 Parameters:         settlement, resource
 Description:        Add a hidden resource to a region
-Sample use:         add_hidden_resource London gold
+Sample use:         add_hidden_resource Rome gold
 Class:              ADD_HIDDEN_RESOURCE
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         remove_hidden_resource
 Parameters:         settlement, resource
 Description:        Remove a hidden resource from a region
-Sample use:         remove_hidden_resource London gold
+Sample use:         remove_hidden_resource Rome gold
 Class:              REMOVE_HIDDEN_RESOURCE
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         add_religion
-Parameters:         religion, region, amount (raw, divided by 100 internally)
-Description:        add to a region's religious distribution
+Parameters:         religion, region, amount (parsed but ignored on RTW)
+Description:        no-op stub; RTW has no per-region religion model
 Sample use:         add_religion judaism Judaea 10
 Class:              ADD_RELIGION
-Implemented:        Yes
+Implemented:        Stub
 ---------------------------------------------------
 Identifier:         release_music_control
 Parameters:         
-Description:        Release script control of music back to the game
+Description:        Release script control of music
 Sample use:         release_music_control
 Class:              RELEASE_MUSIC_CONTROL_CMD
 Implemented:        Yes
@@ -1104,7 +719,7 @@ Implemented:        Yes
 ---------------------------------------------------
 Identifier:         while_fast
 Parameters:         conditions to satisfy to execute this while
-Description:        start a while loop that executes all iterations immediately (up to 1M cap). Alias: holding_while.
+Description:        start a while loop that executes all iterations immediately (up to 1M cap)
 Sample use:         while_fast I_CompareCounter x < 10
 Class:              WHILE_FAST
 Implemented:        Yes
@@ -1128,13 +743,6 @@ Parameters:
 Description:        terminate a monitor loop
 Sample use:         terminate_monitor
 Class:              TERMINATE_MONITOR
-Implemented:        Yes
----------------------------------------------------
-Identifier:         wait_monitors
-Parameters:         
-Description:        Wait until all monitors terminated in this scope
-Sample use:         wait_monitors 
-Class:              WAIT_MONITORS
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         console_command
@@ -1256,13 +864,6 @@ Sample use:         label_unit 0 2 4 julii_hastati_2
 Class:              LABEL_UNIT
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         label
-Parameters:         label
-Description:        Label
-Sample use:         label crap
-Class:              LABEL
-Implemented:        Yes
----------------------------------------------------
 Identifier:         label_location
 Parameters:         x, z, label
 Description:        Label a particular location
@@ -1340,32 +941,11 @@ Sample use:         suspend_during_battle on
 Class:              SUSPEND_DURING_BATTLE
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         log
-Parameters:         [trace|info|warn|debug|err|fatal|always] message
-Description:        prints message to log output (always is default)
-Sample use:         log warn This is warning!
-Class:              SCRIPT_LOG
-Implemented:        Yes
----------------------------------------------------
-Identifier:         log_counter
-Parameters:         [trace|info|warn|debug|err|fatal|always] counter_name
-Description:        prints counter name and value into log output (always is default)
-Sample use:         log_counter ScrollOpenedCounter
-Class:              SCRIPT_LOG_COUNTER
-Implemented:        Yes
----------------------------------------------------
 Identifier:         set_music_state
 Parameters:         tension, mobilize, battle or custom
 Description:        Sets the music state in the battle
 Sample use:         set_music_state mobilize
 Class:              SET_MUSIC_STATE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         enable_battle_notifications
-Parameters:         0 or 1
-Description:        Enable audio notifications in the battle
-Sample use:         enable_battle_notifications 0
-Class:              ENABLE_BATTLE_NOTIFICATIONS
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         play_sound_event
@@ -1532,13 +1112,6 @@ Sample use:         show_ui
 Class:              SHOW_UI
 Implemented:        Yes
 ---------------------------------------------------
-Identifier:         disable_movie_view
-Parameters:         
-Description:        disables black movie mode restriction bars
-Sample use:         disable_movie_view
-Class:              DISABLE_MOVIE_VIEW
-Implemented:        Yes
----------------------------------------------------
 Identifier:         disable_ui
 Parameters:         UI element (see available_ui_element_ids.txt for appropriate identifiers)
 Description:        turn off the named UI element
@@ -1593,7 +1166,7 @@ Parameters:         strategy map position
 Description:        remove the shroud from the tile
 Sample use:         reveal_tile 25, 43
 Class:              REVEAL_TILE
-Implemented:        No
+Implemented:        Yes
 ---------------------------------------------------
 Identifier:         hide_all_revealed_tiles
 Parameters:         
@@ -1692,17 +1265,10 @@ Class:              SELECT_ELEMENT
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         disable_shortcuts
-Parameters:         {element_id}, {shortcut_function}, true/false
-Description:        This will disable/enable all keyboard shortcuts for a given element (or all elements if element_id is omitted) and function (or all functions for that element if omitted), except the key defined as being the 'quit' key (ESC by default).  See data/descr_shortcuts.txt or the print_shortcuts console command for the element_ids that are useable
+Parameters:         {element_id}, true/false
+Description:        This will disable/enable all keyboard shortcuts for a given element (or all elements if element_id is omitted), except the key defined as being the 'quit' key (ESC by default).  See data/descr_shortcuts.txt for the element_ids that are useable
 Sample use:         disable_shortcuts true - to disable, disable_shortcuts false - to enable them again
 Class:              DISABLE_SHORTCUTS
-Implemented:        Yes
----------------------------------------------------
-Identifier:         set_shortcut_keyset
-Parameters:         keyset_name
-Description:        This will set the current keyset to the name specified if valid
-Sample use:         set_shortcut_keyset default
-Class:              SET_SHORTCUT_KEYSET
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         filter_unit_commands
@@ -1786,29 +1352,8 @@ Class:              E_HIGHLIGHT_RECRUITMENT_ITEM
 Implemented:        Yes
 ---------------------------------------------------
 Identifier:         highlight_construction_item
-Parameters:         [building_name] [true|false]
-Description:        Will highlight the given building in the construction options. If building_name is missing will use advised_build from event context. If the item isn't being shown, then the slider will be set so that the item is visible.
+Parameters:         building name as refered to unit export_descr_buildings.txt
+Description:        will highlight the given building in the construction queue. If the item isn't being shown, then the slider will be set so that the item is visible
 Sample use:         highlight_construction_item
 Class:              E_HIGHLIGHT_CONSTRUCTION_ITEM
-Implemented:        Yes
----------------------------------------------------
-Identifier:         highlight_siege_item
-Parameters:         [siege_item_name]
-Description:        Will highlight the given siege item (tower, ladder, ram) in the siege construction options.
-Sample use:         highlight_siege_item ladder
-Class:              E_HIGHLIGHT_SIEGE_ITEM
-Implemented:        Yes
----------------------------------------------------
-Identifier:         disable_save
-Parameters:         
-Description:        Disable ability to save game
-Sample use:         disable_save
-Class:              DISABLE_SAVE
-Implemented:        Yes
----------------------------------------------------
-Identifier:         enable_save
-Parameters:         
-Description:        Enable ability to save game
-Sample use:         enable_save
-Class:              ENABLE_SAVE
 Implemented:        Yes

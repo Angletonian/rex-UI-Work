@@ -166,11 +166,6 @@ Event:              An engine has destroyed a gate
 Exports:            unit
 Class:              ET_BATTLE_GATES_DESTROYED_BY_ENGINE
 ---------------------------------------------------
-Identifier:         BattleSpySuccess
-Event:              A spy has successfully opened the gates
-Exports:            unit
-Class:              ET_BATTLE_SPY_SUCCESS
----------------------------------------------------
 Identifier:         BattleWallsBreachedByEngine
 Event:              A siege engine has knocked down a wall
 Exports:            unit
@@ -186,120 +181,15 @@ Event:              The battle has finished
 Exports:            unit
 Class:              ET_BATTLE_FINISHED
 ---------------------------------------------------
-Identifier:         BattleWinningPlaza
-Event:              The plaza is being captured
-Exports:            unit
-Class:              ET_BATTLE_WINNING_PLAZA
----------------------------------------------------
-Identifier:         BattleStopsWinningPlaza
-Event:              The plaza capture has been stopped
-Exports:            unit
-Class:              ET_BATTLE_STOPS_WINNING_PLAZA
----------------------------------------------------
-Identifier:         BattleDominatingPlaza
-Event:              The enemy will have captured the plaza in 30s
-Exports:            unit
-Class:              ET_BATTLE_DOMINATING_PLAZA
----------------------------------------------------
-Identifier:         BattleEngineUnmanned
-Event:              A siege engine is now unmanned
-Exports:            unit
-Class:              ET_BATTLE_ENGINE_UNMANNED
----------------------------------------------------
-Identifier:         BattleArmyHalfDestroyed
-Event:              Half of an army has been destroyed
-Exports:            army
-Class:              ET_BATTLE_ARMY_HALF_DESTROYED
----------------------------------------------------
-Identifier:         BattlePlayerArmyHalfDestroyed
-Event:              Half of the player's army has been destroyed
-Exports:            army
-Class:              ET_BATTLE_PLAYER_ARMY_HALF_DESTROYED
----------------------------------------------------
-Identifier:         BattleEnemyArmyHalfDestroyed
-Event:              Half of the enemy's army has been destroyed
-Exports:            army
-Class:              ET_BATTLE_ENEMY_ARMY_HALF_DESTROYED
----------------------------------------------------
-Identifier:         BattleArmyTired
-Event:              The whole army is tired
-Exports:            army
-Class:              ET_BATTLE_ARMY_TIRED
----------------------------------------------------
-Identifier:         BattlePlayerUnderAttackIdle
-Event:              An idle unit is under missile fire
-Exports:            unit
-Class:              ET_BATTLE_PLAYER_UNDER_ATTACK_IDLE
----------------------------------------------------
-Identifier:         BattleWinningCombat
-Event:              A team has gained the advantage in combat
-Exports:            army
-Class:              ET_BATTLE_WINNING_COMBAT
----------------------------------------------------
-Identifier:         BattleTideofBattle
-Event:              A different team is now the strongest
-Exports:            army
-Class:              ET_BATTLE_TIDE_OF_BATTLE
----------------------------------------------------
 Identifier:         FactionTurnStart
 Event:              A Faction has started its turn
 Exports:            faction
 Class:              ET_FACTION_TURN_START
 ---------------------------------------------------
-Identifier:         PreFactionTurnStart
-Event:              A Faction is about to start its turn
-Exports:            faction
-Class:              ET_PRE_FACTION_TURN_START
----------------------------------------------------
-Identifier:         FactionNewCapital
-Event:              A Faction has changed its capital
-Exports:            faction
-Class:              ET_FACTION_NEW_CAPITAL
----------------------------------------------------
 Identifier:         FactionWarDeclared
 Event:              War has been declared by faction on target_faction
-Exports:            faction, target_faction, target_religion
+Exports:            faction, target_faction
 Class:              ET_FACTION_WAR_DECLARED
----------------------------------------------------
-Identifier:         FactionAllianceDeclared
-Event:              An Alliance has been declared by faction on target_faction
-Exports:            faction, target_faction, target_religion
-Class:              ET_FACTION_ALLIANCE_DECLARED
----------------------------------------------------
-Identifier:         InterFactionMarriage
-Event:              A marriage has occured between two factions.  gets fired for both factions involved
-Exports:            faction, target_faction, target_religion
-Class:              ET_INTER_FACTION_MARRIAGE
----------------------------------------------------
-Identifier:         FactionTradeAgreementMade
-Event:              A trade agreement has been made by faction on target_faction
-Exports:            faction, target_faction, target_religion
-Class:              ET_FACTION_TRADE_AGREEMENT_MADE
----------------------------------------------------
-Identifier:         GiveMoney
-Event:              Money has been given to another faction
-Exports:            faction, target_faction, amount, target_religion
-Class:              ET_GIVE_MONEY
----------------------------------------------------
-Identifier:         PopeElected
-Event:              A new pope has been elected
-Exports:            faction, target_faction, target_religion
-Class:              ET_POPE_ELECTED
----------------------------------------------------
-Identifier:         VotedForPope
-Event:              A Faction has voted for the new pope
-Exports:            faction
-Class:              ET_VOTED_FOR_POPE
----------------------------------------------------
-Identifier:         FactionExcommunicated
-Event:              A Faction has been excommunicated
-Exports:            faction
-Class:              ET_FACTION_EXCOMMUNICATED
----------------------------------------------------
-Identifier:         FactionBreakAlliance
-Event:              An alliance has been broken by faction on target_faction
-Exports:            faction, target_faction, target_religion
-Class:              ET_FACTION_BREAK_ALLIANCE
 ---------------------------------------------------
 Identifier:         HordeFormed
 Event:              A Faction has formed a horde
@@ -321,9 +211,14 @@ Event:              A General has captured a residence (fort, watchtower)
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_GENERAL_CAPTURE_RESIDENCE
 ---------------------------------------------------
+Identifier:         GeneralCaptureWonder
+Event:              A General has captured a wonder
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_GENERAL_CAPTURE_WONDER
+---------------------------------------------------
 Identifier:         GeneralCaptureSettlement
 Event:              A General has captured a settlement
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_settlement, settlement, target_faction, rsam
+Exports:            nc_character_record, character_record, faction, region_id, character_type, target_settlement, settlement, rsam
 Class:              ET_GENERAL_CAPTURE_SETTLEMENT
 ---------------------------------------------------
 Identifier:         LeaderDestroyedFaction
@@ -341,20 +236,10 @@ Event:              A character has been injured by a disaster
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_CHARACTER_DAMAGED_BY_DISASTER
 ---------------------------------------------------
-Identifier:         EventCounter
-Event:              An event counter has changed
-Exports:            event_counter
-Class:              ET_EVENT_COUNTER
----------------------------------------------------
 Identifier:         GeneralAssaultsResidence
 Event:              An assault has taken place
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, target_region_id, target_religion
-Class:              ET_GENERAL_ASSAULT_RESIDENCE
----------------------------------------------------
-Identifier:         GeneralAssaultsGeneral
-Event:              A general has attacked another general
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, target_character_record, target_character_type, target_faction, target_religion
-Class:              ET_GENERAL_ASSAULT_GENERAL
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_ASSAULT
 ---------------------------------------------------
 Identifier:         OfferedForAdoption
 Event:              An adoption has been proposed
@@ -386,6 +271,36 @@ Event:              The character has been made the faction heir
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_BECOMES_FACTION_HEIR
 ---------------------------------------------------
+Identifier:         BecomeQuaestor
+Event:              The character has been made Quaestor
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_BECOME_QUAESTOR
+---------------------------------------------------
+Identifier:         BecomeAedile
+Event:              The character has been made Aedile
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_BECOME_AEDILE
+---------------------------------------------------
+Identifier:         BecomePraetor
+Event:              The character has been made Praetor
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_BECOME_PRAETOR
+---------------------------------------------------
+Identifier:         BecomeConsul
+Event:              The character has been made Consul
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_BECOME_CONSUL
+---------------------------------------------------
+Identifier:         BecomeCensor
+Event:              The character has been made Censor
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_BECOME_CENSOR
+---------------------------------------------------
+Identifier:         BecomePontifexMaximus
+Event:              The character has been made Pontifex Maximus
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_BECOME_PONTIFEX_MAXIMUS
+---------------------------------------------------
 Identifier:         CeasedFactionLeader
 Event:              The character is no longer faction leader
 Exports:            nc_character_record, character_record, faction, region_id, character_type
@@ -396,80 +311,90 @@ Event:              The character is no longer faction heir
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_CEASED_FACTION_HEIR
 ---------------------------------------------------
+Identifier:         CeasedQuaestor
+Event:              The character is no longer Quaestor
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CEASED_QUAESTOR
+---------------------------------------------------
+Identifier:         CeasedAedile
+Event:              The character is no longer Aedile
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CEASED_AEDILE
+---------------------------------------------------
+Identifier:         CeasedPraetor
+Event:              The character is no longer Praetor
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CEASED_PRAETOR
+---------------------------------------------------
+Identifier:         CeasedConsul
+Event:              The character is no longer Consul
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CEASED_CONSUL
+---------------------------------------------------
+Identifier:         CeasedCensor
+Event:              The character is no longer Censor
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CEASED_CENSOR
+---------------------------------------------------
+Identifier:         CeasedPontifexMaximus
+Event:              The character is no longer Pontifex Maximus
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CEASED_PONTIFEX_MAXIMUS
+---------------------------------------------------
 Identifier:         UngarrisonedFort
 Event:              A fort is no longer garrisoned
 Exports:            faction, fort, region_id
 Class:              ET_UNGARRISONED_FORT
 ---------------------------------------------------
-Identifier:         TileSeen
-Event:              The tile has been seen by faction
-Exports:            faction, region_id, sm_position
-Class:              ET_TILE_SEEN_FACTION
+Identifier:         LostLegionaryEagle
+Event:              When a roman general has lost a battle and one of your units was carrying a legionary eagle(first cohort)
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_LOST_LEGIONARY_EAGLE
 ---------------------------------------------------
-Identifier:         ObjSeen
-Event:              An object of target faction has been seen by faction
-Exports:            faction, target_faction, region_id, sm_position
-Class:              ET_OBJ_SEEN_FACTION
+Identifier:         CapturedLegionaryEagle
+Event:              When you have defeated a roman general and one of his units was carrying a legionary eagle(first cohort), you capture it
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_CAPTURED_LEGIONARY_EAGLE
 ---------------------------------------------------
-Identifier:         CrusadeCalled
-Event:              A Crusade/Jihad has been called
-Exports:            crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_CRUSADE_CALLED
+Identifier:         RecapturedLegionaryEagle
+Event:              We recaptured the eagle by completing the senate mission by conquering the settlement which holds it
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_RECAPTURED_LEGIONARY_EAGLE
 ---------------------------------------------------
-Identifier:         CrusadeEnds
-Event:              A Crusade/Jihad has ended
-Exports:            crusade, target_settlement, target_region_id
-Class:              ET_CRUSADE_ENDS
+Identifier:         SenateExposure
+Event:              The senate has leaked information about you as punishment for failing a mission
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_SENATE_EXPOSURE
 ---------------------------------------------------
-Identifier:         PopeAcceptsCrusadeTarget
-Event:              The Pope has accepted the player's crusade target
-Exports:            crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_POPE_ACCEPTS_CRUSADE
+Identifier:         QuaestorInvestigationMinor
+Event:              The senate has punished you by launching an investigation by the quaestor, probably leading to a minor fine
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_QUAESTOR_INVESTIGATION_MINOR
 ---------------------------------------------------
-Identifier:         PopeRejectsCrusadeTarget
-Event:              The Pope has rejected the player's crusade target
-Exports:            crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_POPE_REJECTS_CRUSADE
+Identifier:         QuaestorInvestigation
+Event:              The senate has punished you by launching an investigation by the quaestor, probably leading to a fine
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_QUAESTOR_INVESTIGATION
 ---------------------------------------------------
-Identifier:         UnitsDesertCrusade
-Event:              Units have deserted a crusade/jihad
-Exports:            faction, religion, crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_UNITS_DESERT_CRUSADE
+Identifier:         QuaestorInvestigationMajor
+Event:              The senate has punished you by launching an investigation by the quaestor, probably leading to a major fine
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_QUAESTOR_INVESTIGATION_MAJOR
 ---------------------------------------------------
-Identifier:         ArmyTakesCrusadeTarget
-Event:              Army has taken crusade/jihad target settlement
-Exports:            army, faction, religion, region_id, sm_position, crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_ARMY_TAKES_CRUSADE_TARGET
+Identifier:         PopularSupportForOverthrow
+Event:              The people of Rome are prepared to support any action against the senate
+Exports:            faction
+Class:              ET_POPULAR_SUPPORT_FOR_OVERTHROW
 ---------------------------------------------------
-Identifier:         Transgression
-Event:              A faction to faction transgression has occurred
-Exports:            faction, target_faction, resource_description
-Class:              ET_TRANSGRESSION
+Identifier:         SenateReadyToOutlawFaction
+Event:              The senate has had enough of this faction's empire building and grandstanding
+Exports:            faction
+Class:              ET_SENATE_READY_TO_OUTLAW_FACTION
 ---------------------------------------------------
-Identifier:         DishonestTransgression
-Event:              A global dishonest transgression has occurred
-Exports:            faction, resource_description
-Class:              ET_DISHONEST_TRANSGRESSION
----------------------------------------------------
-Identifier:         Forgiveness
-Event:              A faction to faction forgiveness has occurred
-Exports:            faction, target_faction, resource_description
-Class:              ET_FORGIVENESS
----------------------------------------------------
-Identifier:         UpdateAttitude
-Event:              A faction to faction attitude update has occurred (once every round)
-Exports:            faction, target_faction
-Class:              ET_UPDATE_ATTITUDE
----------------------------------------------------
-Identifier:         Demeanour
-Event:              A demeanour response has occured in diplomacy talks
-Exports:            faction, target_faction, amount, target_religion
-Class:              ET_DEMEANOUR
----------------------------------------------------
-Identifier:         UnitDisbanded
-Event:              A unit has been disbanded
-Exports:            faction, resource_description, unit
-Class:              ET_UNIT_DISBANDED
+Identifier:         SenateOutlawsFaction
+Event:              The senate has declared this faction outlaw
+Exports:            faction
+Class:              ET_SENATE_OUTLAWS_FACTION
 ---------------------------------------------------
 Identifier:         NewTurnStart
 Event:              Fires once at the start of each campaign turn (not per faction)
@@ -496,51 +421,6 @@ Event:              A Character has married
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_MARRIAGE
 ---------------------------------------------------
-Identifier:         CharacterMarriesPrincess
-Event:              A Character has married a princess
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_PRINCESS_MARRIAGE
----------------------------------------------------
-Identifier:         MarriageAlliancePosssible
-Event:              A marriage alliance is possible
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_MARRIAGE_ALLIANCE_POSSIBLE
----------------------------------------------------
-Identifier:         MarriageAllianceOffered
-Event:              A marriage alliance has been offered
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_MARRIAGE_ALLIANCE_OFFERED
----------------------------------------------------
-Identifier:         PriestBecomesHeretic
-Event:              A priest has gone mad
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_PRIEST_BECOMES_HERETIC
----------------------------------------------------
-Identifier:         CharacterNearHeretic
-Event:              A character is adjacent to a heretic
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_CHARACTER_NEAR_HERETIC
----------------------------------------------------
-Identifier:         CharacterNearWitch
-Event:              A character is adjacent to a witch
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_CHARACTER_NEAR_WITCH
----------------------------------------------------
-Identifier:         CardinalPromoted
-Event:              A character has been promoted to a cardinal
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_CARDINAL_PROMOTED
----------------------------------------------------
-Identifier:         CardinalRemoved
-Event:              A cardinal has been removed from the game
-Exports:            faction
-Class:              ET_CARDINAL_REMOVED
----------------------------------------------------
-Identifier:         InquisitorAppointed
-Event:              An inquisitor has been dispatched to a region
-Exports:            faction
-Class:              ET_INQUISITOR_APPOINTED
----------------------------------------------------
 Identifier:         CharacterBecomesAFather
 Event:              A Character has become a father
 Exports:            nc_character_record, character_record, faction, region_id, character_type
@@ -566,74 +446,14 @@ Event:              A General and his army has devastated an enemy's fertile lan
 Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement
 Class:              ET_GENERAL_DEVASTATES_TILE
 ---------------------------------------------------
-Identifier:         GeneralJoinCrusade
-Event:              A General has been sent on Crusade/Jihad
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_GENERAL_JOIN_CRUSADE
----------------------------------------------------
-Identifier:         GeneralAbandonCrusade
-Event:              A General has left the Crusade/Jihad
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_GENERAL_ABANDON_CRUSADE
----------------------------------------------------
-Identifier:         GeneralArrivesCrusadeTargetRegion
-Event:              A General has arrived in the Crusade/Jihad target region
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, army, crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_GENERAL_ARRIVES_CRUSADE_TARGET_REGION
----------------------------------------------------
-Identifier:         GeneralTakesCrusadeTarget
-Event:              A General has taken the Crusade/Jihad target settlement
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, crusade, target_settlement, target_region_id, target_faction, target_religion
-Class:              ET_GENERAL_TAKES_CRUSADE_TARGET
----------------------------------------------------
-Identifier:         FatherDiesNatural
-Event:              A character father died of natural causes
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion
-Class:              ET_FATHER_DIES_NATURAL
----------------------------------------------------
-Identifier:         CharacterAttacksCrusadingGeneral
-Event:              A general on crusade/jihad has been attacked by other character (it includes crusading generals attacked in a residence or on navy and generals attacked by spotted and killed assassin)
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, target_character_record, target_character_type, target_faction, target_religion
-Class:              ET_CHARACTER_ATTACKS_CRUSADING_GENERAL
----------------------------------------------------
-Identifier:         GeneralPrisonersRansomedCaptor
-Event:              A General of a captor faction has made a ransom decision
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, target_faction, target_religion, captured_faction_info, ransom_type
-Class:              ET_GENERAL_PRISONERS_RANSOMED_CAPTOR
----------------------------------------------------
-Identifier:         GeneralPrisonersRansomedCaptive
-Event:              A General of a captive faction has made a ransom decision
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, target_faction, target_religion, captured_faction_info, ransom_type
-Class:              ET_GENERAL_PRISONERS_RANSOMED_CAPTIVE
----------------------------------------------------
-Identifier:         FactionLeaderPrisonersRansomedCaptor
-Event:              A captor faction has made a ransom decision
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, target_faction, target_religion, captured_faction_info, ransom_type
-Class:              ET_FACTION_LEADER_PRISONERS_RANSOMED_CAPTOR
----------------------------------------------------
-Identifier:         FactionLeaderPrisonersRansomedCaptive
-Event:              A captive faction has made a ransom decision
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion, target_faction, target_religion, captured_faction_info, ransom_type
-Class:              ET_FACTION_LEADER_PRISONERS_RANSOMED_CAPTIVE
----------------------------------------------------
-Identifier:         CapturedCharacterRansomed
-Event:              A captured character has been successfully ransomed back from the enemy
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion
-Class:              ET_CAPTURED_CHARACTER_RANSOMED
----------------------------------------------------
-Identifier:         CapturedCharacterReleased
-Event:              A captured character has been released by the enemy
-Exports:            nc_character_record, character_record, faction, region_id, character_type, religion
-Class:              ET_CAPTURED_CHARACTER_RELEASED
----------------------------------------------------
 Identifier:         AcquiredAncillary
 Event:              A character has acquired an ancillary
 Exports:            nc_character_record, character_record, faction, region_id, character_type, acquired_ancillary
 Class:              ET_ACQUIRED_ANCILLARY
 ---------------------------------------------------
 Identifier:         SpyMission
-Event:              A spy mission has completed  May also export fort or settlement if target was a garrison residence.
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level, target_religion, fort, settlement
+Event:              A spy mission has completed
+Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level
 Class:              ET_SPY_MISSION
 ---------------------------------------------------
 Identifier:         ExecutesASpyOnAMission
@@ -642,24 +462,19 @@ Exports:            nc_character_record, character_record, faction, region_id, c
 Class:              ET_EXECUTES_A_SPY_ON_A_MISSION
 ---------------------------------------------------
 Identifier:         LeaderOrderedSpyingMission
-Event:              A Faction leader has ordered a spying mission.  May also export fort or settlement if target was a garrison residence.
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level, target_religion, success_prob, fort, settlement
+Event:              A Faction leader has ordered a spying mission
+Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level
 Class:              ET_LEADER_ORDERED_SPYING_MISSION
 ---------------------------------------------------
 Identifier:         AssassinationMission
 Event:              An assassination mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level, success_prob
+Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level
 Class:              ET_ASSASSINATION_MISSION
 ---------------------------------------------------
 Identifier:         ExecutesAnAssassinOnAMission
 Event:              An assassination mission has failed and the assassin is executed by the target
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_EXECUTES_AN_ASSASSIN_ON_A_MISSION
----------------------------------------------------
-Identifier:         AssassinCaughtAttackingPope
-Event:              An assassination mission against the pope has failed and the assassin is executed
-Exports:            faction
-Class:              ET_ASSASSIN_CAUGHT_ATTACKING_POPE
 ---------------------------------------------------
 Identifier:         LeaderOrderedAssassination
 Event:              A Faction leader has ordered an assassination mission
@@ -671,39 +486,9 @@ Event:              Someone has had an attempt on their life
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_SUFFER_ASSASSINATION_ATTEMPT
 ---------------------------------------------------
-Identifier:         AcquisitionMission
-Event:              An acquisition mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level, success_prob
-Class:              ET_ACQUISITION_MISSION
----------------------------------------------------
-Identifier:         SufferAcquisitionAttempt
-Event:              Someone has had an attempt on their assets
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_SUFFER_ACQUISITION_ATTEMPT
----------------------------------------------------
-Identifier:         MarriageMission
-Event:              A marriage mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level, success_prob
-Class:              ET_MARRIAGE_MISSION
----------------------------------------------------
-Identifier:         SufferMarriageAttempt
-Event:              Someone has had an attempt on their bachelorhood
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_SUFFER_MARRIAGE_ATTEMPT
----------------------------------------------------
-Identifier:         DenouncementMission
-Event:              A denouncement mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level, success_prob
-Class:              ET_DENOUNCEMENT_MISSION
----------------------------------------------------
-Identifier:         SufferDenouncementAttempt
-Event:              Someone has had a denouncement attempt
-Exports:            nc_character_record, character_record, faction, region_id, character_type
-Class:              ET_SUFFER_DENOUNCEMENT_ATTEMPT
----------------------------------------------------
 Identifier:         SabotageMission
 Event:              A sabotage mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level, success_prob
+Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_success_level
 Class:              ET_SABOTAGE_MISSION
 ---------------------------------------------------
 Identifier:         LeaderOrderedSabotage
@@ -713,7 +498,7 @@ Class:              ET_LEADER_ORDERED_SABOTAGE_MISSION
 ---------------------------------------------------
 Identifier:         BriberyMission
 Event:              A bribery mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level, target_religion
+Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level
 Class:              ET_BRIBERY_MISSION
 ---------------------------------------------------
 Identifier:         LeaderOrderedBribery
@@ -738,7 +523,7 @@ Class:              ET_INSURRECTION
 ---------------------------------------------------
 Identifier:         DiplomacyMission
 Event:              A diplomacy mission has completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level, target_religion
+Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, mission_success_level
 Class:              ET_DIPLOMACY_MISSION
 ---------------------------------------------------
 Identifier:         LeaderOrderedDiplomacy
@@ -746,20 +531,15 @@ Event:              A Faction leader has ordered a diplomacy mission
 Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_LEADER_ORDERED_DIPLOMACY_MISSION
 ---------------------------------------------------
-Identifier:         LeaderMissionSuccess
-Event:              A mission has been completed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_details
-Class:              ET_LEADER_MISSION_SUCCESS
+Identifier:         LeaderSenateMissionSuccess
+Event:              A Senate mission has been completed
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_LEADER_SENATE_MISSION_SUCCESS
 ---------------------------------------------------
-Identifier:         LeaderMissionFailed
-Event:              A mission has failed
-Exports:            nc_character_record, character_record, faction, region_id, character_type, mission_details
-Class:              ET_LEADER_MISSION_FAILED
----------------------------------------------------
-Identifier:         MissionFinished
-Event:              A mission has finished (failed, succeeded or expired)
-Exports:            faction, mission_details
-Class:              ET_MISSION_FINISHED
+Identifier:         LeaderSenateMissionFailed
+Event:              A Senate mission has failed
+Exports:            nc_character_record, character_record, faction, region_id, character_type
+Class:              ET_LEADER_SENATE_MISSION_FAILED
 ---------------------------------------------------
 Identifier:         SettlementTurnStart
 Event:              A Settlement is being processed for the start of its faction's turn
@@ -778,12 +558,12 @@ Class:              ET_NEW_ADMIRAL_CREATED
 ---------------------------------------------------
 Identifier:         UnitTrained
 Event:              A unit has been trained
-Exports:            faction, settlement, resource_description, unit
+Exports:            faction, settlement, resource_description, unit_category
 Class:              ET_UNIT_TRAINED
 ---------------------------------------------------
 Identifier:         GovernorUnitTrained
 Event:              A unit has been trained
-Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement, resource_description, unit
+Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement, resource_description, unit_category
 Class:              ET_GOVERNOR_UNIT_TRAINED
 ---------------------------------------------------
 Identifier:         BuildingCompleted
@@ -818,18 +598,8 @@ Class:              ET_GOVERNOR_AGENT_CREATED
 ---------------------------------------------------
 Identifier:         BuildingDestroyed
 Event:              A building has been destroyed
-Exports:            faction, settlement, region_id, resource_description
+Exports:            
 Class:              ET_BUILDING_DESTROYED
----------------------------------------------------
-Identifier:         AddedToBuildingQueue
-Event:              A building has been added to the construction queue
-Exports:            faction, settlement, region_id, resource_description
-Class:              ET_ADDED_TO_BUILDING_QUEUE
----------------------------------------------------
-Identifier:         AddedToTrainingQueue
-Event:              A building has been added to the training queue
-Exports:            faction, settlement, region_id, resource_description
-Class:              ET_ADDED_TO_TRAINING_QUEUE
 ---------------------------------------------------
 Identifier:         GovernorBuildingDestroyed
 Event:              A building has been destroyed
@@ -838,27 +608,22 @@ Class:              ET_GOVERNOR_BUILDING_DESTROYED
 ---------------------------------------------------
 Identifier:         CityRiots
 Event:              A settlement has rioted
-Exports:            faction, settlement, region_id, target_faction, target_religion
+Exports:            faction, settlement, region_id, target_faction
 Class:              ET_SETTLEMENT_RIOTS
----------------------------------------------------
-Identifier:         GiveSettlement
-Event:              A settlement has been given to another faction
-Exports:            faction, settlement, region_id, target_faction, target_religion
-Class:              ET_GIVE_SETTLEMENT
 ---------------------------------------------------
 Identifier:         GovernorCityRiots
 Event:              A settlement has rioted
-Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement, target_faction, target_religion
+Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement, target_faction
 Class:              ET_GOVERNOR_SETTLEMENT_RIOTS
 ---------------------------------------------------
 Identifier:         CityRebels
 Event:              A settlement has rebelled
-Exports:            faction, settlement, region_id, target_faction, target_religion
+Exports:            faction, settlement, region_id, target_faction
 Class:              ET_SETTLEMENT_REBELS
 ---------------------------------------------------
 Identifier:         GovernorCityRebels
 Event:              A settlement has rebelled
-Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement, target_faction, target_religion
+Exports:            nc_character_record, character_record, faction, region_id, character_type, settlement, target_faction
 Class:              ET_GOVERNOR_SETTLEMENT_REBELS
 ---------------------------------------------------
 Identifier:         GovernorThrowGames
@@ -876,60 +641,25 @@ Event:              A settlement is no longer garrisoned
 Exports:            faction, settlement, region_id
 Class:              ET_UNGARRISONED_SETTLEMENT
 ---------------------------------------------------
-Identifier:         OccupySettlement
-Event:              A settlement has been captured and occupied
-Exports:            nc_character_record, character_record, faction, target_faction, region_id, character_type, target_religion
-Class:              ET_OCCUPY_SETTLEMENT
----------------------------------------------------
-Identifier:         SackSettlement
-Event:              A settlement has been captured and sacked
-Exports:            nc_character_record, character_record, faction, target_faction, region_id, character_type, target_religion
-Class:              ET_SACK_SETTLEMENT
+Identifier:         EnslavePopulation
+Event:              A settlement has been captured and some of its population has been enslaved
+Exports:            nc_character_record, character_record, faction, target_faction, region_id, character_type
+Class:              ET_ENSLAVE_POPULATION
 ---------------------------------------------------
 Identifier:         ExterminatePopulation
 Event:              A settlement has been captured and some of its population has been decimated
-Exports:            nc_character_record, character_record, faction, region_id, character_type, target_faction, target_religion
+Exports:            nc_character_record, character_record, faction, region_id, character_type
 Class:              ET_EXTERMINATE_POPULATION
 ---------------------------------------------------
 Identifier:         CitySacked
-Event:              A settlement has been razed
-Exports:            faction, settlement, region_id, target_faction, target_religion
-Class:              ET_SETTLEMENT_RAZED
----------------------------------------------------
-Identifier:         SettlementUpgraded
-Event:              A settlement has been upgraded
-Exports:            faction, settlement, region_id
-Class:              ET_SETTLEMENT_UPGRADED
----------------------------------------------------
-Identifier:         SettlementConverted
-Event:              A settlement has been converted
-Exports:            faction, settlement, region_id
-Class:              ET_SETTLEMENT_CONVERTED
----------------------------------------------------
-Identifier:         GuildUpgraded
-Event:              A guild has been created/upgraded
-Exports:            faction, settlement, region_id, resource_description
-Class:              ET_GUILD_UPGRADED
----------------------------------------------------
-Identifier:         GuildDestroyed
-Event:              A guild has been destroyed
-Exports:            faction, settlement, region_id
-Class:              ET_GUILD_DESTROYED
----------------------------------------------------
-Identifier:         SiegeEquipmentCompleted
-Event:              A seige equipmqnt has been completed by one of sieging army
-Exports:            faction, settlement, region_id, religion
-Class:              ET_SIEGE_EQUIPMENT_COMPLETED
+Event:              A settlement has been sacked
+Exports:            faction, settlement, region_id, target_faction
+Class:              ET_SETTLEMENT_SACKED
 ---------------------------------------------------
 Identifier:         CharacterSelected
 Event:              The player has selected a character
 Exports:            nc_character_record, character_record, faction, region_id, character_type, character_action_advice, target_settlement
 Class:              ET_CHARACTER_SELECTED
----------------------------------------------------
-Identifier:         EnemyCharacterSelected
-Event:              The player has selected an enemy character
-Exports:            nc_character_record, character_record
-Class:              ET_ENEMY_CHARACTER_SELECTED
 ---------------------------------------------------
 Identifier:         DiplomatSelected
 Event:              The player has selected one of their own diplomats
@@ -938,7 +668,7 @@ Class:              ET_DIPLOMAT_SELECTED
 ---------------------------------------------------
 Identifier:         SettlementSelected
 Event:              The player has selected a settlement
-Exports:            faction, settlement, region_id, best_finance_option
+Exports:            faction, settlement, region_id
 Class:              ET_SETTLEMENT_SELECTED
 ---------------------------------------------------
 Identifier:         MultiTurnMove
@@ -953,7 +683,7 @@ Class:              ET_CHARACTER_PANEL_OPEN
 ---------------------------------------------------
 Identifier:         SettlementPanelOpen
 Event:              The player has opened the panel for the selected settlement
-Exports:            faction, settlement, region_id, best_finance_option
+Exports:            faction, settlement, region_id
 Class:              ET_SETTLEMENT_PANEL_OPEN
 ---------------------------------------------------
 Identifier:         FinancesPanelOpen
@@ -976,10 +706,15 @@ Event:              The player has opened the diplomatic standing panel
 Exports:            
 Class:              ET_DIPLOMATIC_STANDING_PANEL_OPEN
 ---------------------------------------------------
-Identifier:         CollegeOfCardinalsPanelOpen
-Event:              The player has opened the college of cardinals panel
+Identifier:         SenateMissionsPanelOpen
+Event:              The player has opened the senate missions panel
+Exports:            faction
+Class:              ET_SENATE_MISSIONS_PANEL_OPEN
+---------------------------------------------------
+Identifier:         SenateOfficesPanelOpen
+Event:              The player has opened the senate offices panel
 Exports:            
-Class:              ET_COLLEGE_OF_CARDINALS_PANEL_OPEN
+Class:              ET_SENATE_OFFICES_PANEL_OPEN
 ---------------------------------------------------
 Identifier:         DiplomacyPanelOpen
 Event:              The player has opened a diplomacy panel
@@ -1018,18 +753,13 @@ Class:              ET_NAVAL_AUTO_RESOLVE_PANEL_OPEN
 ---------------------------------------------------
 Identifier:         IncomingMessage
 Event:              A message has arrived for the player
-Exports:            faction, event
+Exports:            event
 Class:              ET_INCOMING_MESSAGE
 ---------------------------------------------------
 Identifier:         MessageOpen
 Event:              The player has opened a message
-Exports:            faction, event
-Class:              ET_MESSAGE_OPEN
----------------------------------------------------
-Identifier:         MessageClosed
-Event:              The player has closed a message
 Exports:            event
-Class:              ET_MESSAGE_CLOSED
+Class:              ET_MESSAGE_OPEN
 ---------------------------------------------------
 Identifier:         RequestBuildingAdvice
 Event:              The player has requested building advice
@@ -1055,11 +785,6 @@ Identifier:         ShortcutTriggered
 Event:              The player triggered a keyboard shortcut
 Exports:            resource_description
 Class:              ET_SHORTCUT_TRIGGERED
----------------------------------------------------
-Identifier:         UIElementVisible
-Event:              A special UI Element is visible
-Exports:            resource_description
-Class:              ET_UI_ELEMENT_VISIBLE
 ---------------------------------------------------
 Identifier:         ScrollOpened
 Event:              The player opened a scroll
@@ -1093,7 +818,7 @@ Class:              ET_NAVAL_PREBATTLE_SCROLL_ADVICE_REQUESTED
 ---------------------------------------------------
 Identifier:         SettlementScrollAdviceRequested
 Event:              The player has requested advice on the settlement scroll
-Exports:            faction, settlement, region_id, resource_description
+Exports:            faction, settlement, region_id
 Class:              ET_SETTLEMENT_SCROLL_ADVICE_REQUESTED
 ---------------------------------------------------
 Identifier:         Idle
