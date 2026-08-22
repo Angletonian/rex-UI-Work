@@ -12,7 +12,8 @@ Main features:
 - Lightning speed turn times
 - A fully modern, better RTS camera with fixed zooming, middle-mouse rotation and edge panning, zoomin and zoomout uncapped by a lot
 - Fully working pikemen working without sketchy fixes/removing their secondaries, fixed muskets/arquebusiers, fixed two-handers
-- Compatible with all OG mods* (excluding EOP mods)
+- Compatible with all OG mods* (including EOP mods)
+- Scripting support, both the Lua EOP API and a new, (s)Quirrel-based API
 - And many more! (the changelog has 1000+ entries by now)
 
 *some mods require compatibility patches due to errors in the mods making the game corrupt memory.
